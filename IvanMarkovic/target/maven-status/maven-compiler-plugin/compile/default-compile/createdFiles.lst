@@ -1,0 +1,5 @@
+com\it355\dao\SobaService.class
+com\it355\aspect\InterceptorLog.class
+com\it355\dao\SobaServiceImpl.class
+com\it355\ivanmarkovic\SobaController.class
+com\it355\model\Soba.class
