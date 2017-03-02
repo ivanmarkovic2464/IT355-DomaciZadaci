@@ -6,8 +6,18 @@
 
     <%@ include file="header.jsp" %>
     <%@ page language="java" pageEncoding="UTF-8"%>
+    <%@taglib prefix="sec"
+              uri="http://www.springframework.org/security/tags"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
-     <br/><br/>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+    <c:url value="/j_spring_security_logout" var="logoutUrl" />
+ 
+    <form action="${logoutUrl}" 
+       method="post" 
+       id="logoutForm">
+     
+    <br/><br/>
     <h1 align="center">Podaci o sobi</h1>
     <br/><br/><br/><br/>
        <table width="200px" align="center">
@@ -35,6 +45,12 @@
             <td height="50px">Cena po danu</td>
             <td height="50px">${cena}</td> 
         </tr>
-    </table>  
-    
+    </table> 
+        
+    <input type="hidden" name="${_csrf.parameterName}"
+        value="${_csrf.token}" />
+ 
+    </form>
+        
+    </sec:authorize>
     <%@ include file="footer.jsp" %>
