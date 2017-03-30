@@ -17,6 +17,8 @@ and open the template in the editor.
  <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
  <intercept-url pattern="/dodavanjeSobe" access="hasRole('ROLE_ADMIN')" />
  <intercept-url pattern="/dodajSobu" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/sobe" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/korisnici" access="hasRole('ROLE_ADMIN')" />
  <access-denied-handler error-page="/403" />
  <form-login
  login-page="/login"

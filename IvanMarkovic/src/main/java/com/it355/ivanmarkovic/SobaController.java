@@ -5,8 +5,8 @@
  */
 package com.it355.ivanmarkovic;
 
-import com.it355.dao.SobaService;
-import com.it355.model.Soba;
+import com.it355.ivanmarkovic.dao.KorisnikDao;
+import com.it355.ivanmarkovic.model.Soba;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import com.it355.ivanmarkovic.dao.SobaDao;
+import com.it355.ivanmarkovic.model.Korisnik;
+import com.it355.ivanmarkovic.service.KorisnikService;
+import com.it355.ivanmarkovic.service.SobaService;
+import java.util.List;
+import org.springframework.ui.Model;
 /**
  *
  * @author Ivke
@@ -35,6 +41,15 @@ public class SobaController {
     
     @Autowired
     private SobaService sobaService;
+    
+    @Autowired
+    private KorisnikService korisnikService;
+    
+    @Autowired
+    private SobaDao sobaDao;
+    
+    @Autowired
+    private KorisnikDao korisnikDao;
     
     @RequestMapping(value= "/", method = RequestMethod.GET)
     public String printStudent(ModelMap model){
@@ -76,22 +91,26 @@ public class SobaController {
     }
  
     @RequestMapping(value="/dodavanjeSobe", method = RequestMethod.GET)
-    public ModelAndView soba(){
-        sobaService.addSoba();
-        try {
-            sobaService.addSobaSaIzuzetkom();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        System.out.println(messageSource.getMessage("bathroom", null, Locale.ENGLISH));
+    public String soba(Model model){
+        model.addAttribute("soba", new Soba());
+        return "dodavanjeSobe";
+        
+        /*System.out.println(messageSource.getMessage("bathroom", null, Locale.ENGLISH));
         System.out.println(messageSource.getMessage("tv", null, Locale.ENGLISH));
         System.out.println(messageSource.getMessage("airCondition", null, Locale.ENGLISH));
         
-        return new ModelAndView("dodavanjeSobe","command",new Soba());
+        return new ModelAndView("dodavanjeSobe","command",new Soba());*/
     }
     
-    @RequestMapping(value="/dodajSobu", method = RequestMethod.POST)
-    public String dodajSobu(@ModelAttribute Soba soba, ModelMap model){
+    //@RequestMapping(value="/dodajSobu", method = RequestMethod.POST)
+    @RequestMapping(value="/dodavanjeSobe", method = RequestMethod.POST)
+    public ModelAndView dodajSobu(@ModelAttribute("soba") Soba soba, ModelAndView model){
+        
+        model.addObject("object", soba);
+        soba.setId(sobaDao.getCount()+1);
+        sobaDao.addSoba(soba);
+        
+        /*
         model.addAttribute("brojKreveta", soba.getBrojKreveta());
         model.addAttribute("velicinaSobe", soba.getVelicinaUMetrimaKvadratnim());
         model.addAttribute("kupatilo", soba.getKupatilo());
@@ -99,9 +118,25 @@ public class SobaController {
         model.addAttribute("klima", soba.getKlima());
         model.addAttribute("cena", soba.getCenaPoDanu());
         
-        sobaService.addSobaAround(soba.getBrojKreveta());
+        */
         
-        return "soba";
+        return model;
+    }
+    
+    @RequestMapping(value="/sobe", method=RequestMethod.GET)
+    public ModelAndView sobe(ModelAndView modelAndView) {
+        List<Soba> sobe= sobaService.getAllRooms();
+        modelAndView.addObject("sobe", sobe);
+        modelAndView.setViewName("sobe");
+        return modelAndView;
+    }
+    
+    @RequestMapping(value="/korisnici", method=RequestMethod.GET)
+        public ModelAndView korisnici(ModelAndView modelAndView) {
+        List<Korisnik> korisnici= korisnikService.getAllUsers();
+        modelAndView.addObject("korisnici", korisnici);
+        modelAndView.setViewName("korisnici");
+        return modelAndView;
     }
     
     @RequestMapping(value = "/403", method = RequestMethod.GET)

@@ -12,7 +12,7 @@
     <br/><br/>
     <h1 align="center">Unesite informacije o sobi</h1>
     <br/><br/><br/>
-    <form:form  method="POST" action="/IvanMarkovic/dodajSobu">
+    <form:form  method="POST" modelAttribute="soba">
        <table width="500px"  align="center" >
             <tr>                                
             <td height="50px"><form:label path="brojKreveta"><spring:message code="beds"/></form:label></td>
@@ -20,8 +20,8 @@
         </tr>
         
         <tr>                              
-            <td height="50px"><form:label path="velicinaUMetrimaKvadratnim"><spring:message code="size"/></form:label></td>
-            <td height="50px"><form:input path="velicinaUMetrimaKvadratnim" /></td>
+            <td height="50px"><form:label path="velicina"><spring:message code="size"/></form:label></td>
+            <td height="50px"><form:input path="velicina" /></td>
         </tr>
         
         <tr>                              
@@ -40,8 +40,8 @@
         </tr>
         
         <tr>                              
-            <td height="50px"><form:label path="cenaPoDanu"><spring:message code="price"/></form:label></td>
-            <td height="50px"><form:input path="cenaPoDanu" /></td>
+            <td height="50px"><form:label path="cena"><spring:message code="price"/></form:label></td>
+            <td height="50px"><form:input path="cena" /></td>
         </tr>
         
         <tr align="center">

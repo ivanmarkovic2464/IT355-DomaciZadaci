@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2017 at 12:00 PM
+-- Generation Time: Mar 27, 2017 at 01:10 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,39 @@ SET time_zone = "+00:00";
 --
 -- Database: `it355-dz5`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sobe`
+--
+
+CREATE TABLE IF NOT EXISTS `sobe` (
+  `ID` int(11) NOT NULL,
+  `brojKreveta` int(11) NOT NULL,
+  `Velicina` int(11) NOT NULL,
+  `Kupatilo` varchar(5) COLLATE utf8_bin NOT NULL,
+  `TV` varchar(5) COLLATE utf8_bin NOT NULL,
+  `Klima` varchar(5) COLLATE utf8_bin NOT NULL,
+  `Cena` double NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `sobe`
+--
+
+INSERT INTO `sobe` (`ID`, `brojKreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, `Cena`) VALUES
+(1, 1, 50, 'da', 'da', 'da', 64),
+(2, 3, 45, 'da', 'da', 'ne', 55),
+(3, 2, 45, 'da', 'ne', 'da', 40),
+(4, 2, 30, 'da', 'da', 'da', 45),
+(5, 1, 30, 'da', 'da', 'da', 65),
+(6, 2, 40, 'da', 'da', 'da', 45),
+(7, 1, 20, 'da', 'ne', 'ne', 25),
+(8, 1, 20, 'da', 'ne', 'ne', 25),
+(9, 1, 50, 'da', 'da', 'da', 100),
+(10, 1, 50, 'da', 'da', 'da', 100);
 
 -- --------------------------------------------------------
 
