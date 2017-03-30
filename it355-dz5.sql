@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Mar 27, 2017 at 01:10 PM
+=======
+-- Generation Time: Mar 26, 2017 at 10:40 PM
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -28,7 +32,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `sobe` (
   `ID` int(11) NOT NULL,
+<<<<<<< HEAD
   `brojKreveta` int(11) NOT NULL,
+=======
+  `Broj kreveta` int(11) NOT NULL,
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
   `Velicina` int(11) NOT NULL,
   `Kupatilo` varchar(5) COLLATE utf8_bin NOT NULL,
   `TV` varchar(5) COLLATE utf8_bin NOT NULL,
@@ -41,17 +49,25 @@ CREATE TABLE IF NOT EXISTS `sobe` (
 -- Dumping data for table `sobe`
 --
 
+<<<<<<< HEAD
 INSERT INTO `sobe` (`ID`, `brojKreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, `Cena`) VALUES
+=======
+INSERT INTO `sobe` (`ID`, `Broj kreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, `Cena`) VALUES
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
 (1, 1, 50, 'da', 'da', 'da', 64),
 (2, 3, 45, 'da', 'da', 'ne', 55),
 (3, 2, 45, 'da', 'ne', 'da', 40),
 (4, 2, 30, 'da', 'da', 'da', 45),
+<<<<<<< HEAD
 (5, 1, 30, 'da', 'da', 'da', 65),
 (6, 2, 40, 'da', 'da', 'da', 45),
 (7, 1, 20, 'da', 'ne', 'ne', 25),
 (8, 1, 20, 'da', 'ne', 'ne', 25),
 (9, 1, 50, 'da', 'da', 'da', 100),
 (10, 1, 50, 'da', 'da', 'da', 100);
+=======
+(5, 1, 30, 'da', 'da', 'da', 65);
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
 
 -- --------------------------------------------------------
 
