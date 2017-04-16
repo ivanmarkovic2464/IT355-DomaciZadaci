@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2017 at 12:00 PM
+-- Generation Time: Apr 16, 2017 at 10:04 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,61 @@ SET time_zone = "+00:00";
 --
 -- Database: `it355-dz5`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategorije`
+--
+
+CREATE TABLE IF NOT EXISTS `kategorije` (
+  `IDkategorije` int(11) NOT NULL AUTO_INCREMENT,
+  `nazivKategorije` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`IDkategorije`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `kategorije`
+--
+
+INSERT INTO `kategorije` (`IDkategorije`, `nazivKategorije`) VALUES
+(1, 'Prva'),
+(2, 'Druga');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sobe`
+--
+
+CREATE TABLE IF NOT EXISTS `sobe` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `brojKreveta` int(11) NOT NULL,
+  `Velicina` int(11) NOT NULL,
+  `Kupatilo` varchar(5) COLLATE utf8_bin NOT NULL,
+  `TV` varchar(5) COLLATE utf8_bin NOT NULL,
+  `Klima` varchar(5) COLLATE utf8_bin NOT NULL,
+  `Cena` double NOT NULL,
+  `IDkategorije` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDkategorije` (`IDkategorije`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `sobe`
+--
+
+INSERT INTO `sobe` (`ID`, `brojKreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, `Cena`, `IDkategorije`) VALUES
+(1, 1, 50, 'da', 'da', 'da', 64, 1),
+(2, 3, 45, 'da', 'da', 'ne', 55, 1),
+(3, 2, 45, 'da', 'ne', 'da', 40, 1),
+(4, 2, 30, 'da', 'da', 'da', 45, 1),
+(5, 1, 30, 'da', 'da', 'da', 65, 1),
+(6, 2, 40, 'da', 'da', 'da', 45, 1),
+(7, 1, 20, 'da', 'ne', 'ne', 25, 1),
+(8, 1, 20, 'da', 'ne', 'ne', 25, 1),
+(9, 1, 50, 'da', 'da', 'da', 100, 1),
+(10, 1, 50, 'da', 'da', 'da', 100, 1);
 
 -- --------------------------------------------------------
 
@@ -68,6 +123,12 @@ INSERT INTO `user_roles` (`user_role_id`, `username`, `role`) VALUES
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `sobe`
+--
+ALTER TABLE `sobe`
+  ADD CONSTRAINT `sobe_ibfk_1` FOREIGN KEY (`IDkategorije`) REFERENCES `kategorije` (`IDkategorije`);
 
 --
 -- Constraints for table `user_roles`
