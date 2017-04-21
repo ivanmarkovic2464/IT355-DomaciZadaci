@@ -16,6 +16,7 @@ and open the template in the editor.
  
        xsi:schemaLocation="
        http://www.springframework.org/schema/mvc
+<<<<<<< HEAD
        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
        http://www.springframework.org/schema/beans     
        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
@@ -73,6 +74,19 @@ and open the template in the editor.
     <mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
     <mvc:resources mapping="/resources/**" location="/WEB-INF/" />
         
+=======
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+       http://www.springframework.org/schema/beans     
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:component-scan base-package="com.it355.ivanmarkovic" />
+        <mvc:annotation-driven/>
+        <mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
         
         
         <bean id="messageSource"
@@ -84,6 +98,7 @@ and open the template in the editor.
             </property>
             <property name="defaultEncoding" value="UTF-8"/>
         </bean>
+<<<<<<< HEAD
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
         <set>
@@ -97,3 +112,26 @@ and open the template in the editor.
           <property name="suffix" value=".jsp" />
         </bean>
 </beans>
+=======
+    <!--
+        <bean id="sobaServiceImpl" class="com.it355.ivanmarkovic.service.impl.SobaServiceImpl"/>
+        <bean id="logAspect" class="com.it355.ivanmarkovic.aspect.InterceptorLog"/>
+   
+        <bean id="logPointcutAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+            <property name="advice" ref="logAspect" />
+            <property name="mappedName">
+            <value>*</value>
+            </property>
+        </bean>
+        
+        <bean id="testServiceProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+            <property name="beanNames" value="sobaServiceImpl" />
+            <property name="interceptorNames">
+            <list>
+                <value>logPointcutAdvisor</value>
+            </list>
+            </property>
+        </bean>-->
+        
+    </beans>
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77

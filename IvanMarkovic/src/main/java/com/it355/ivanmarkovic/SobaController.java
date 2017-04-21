@@ -5,9 +5,17 @@
  */
 package com.it355.ivanmarkovic;
 
+<<<<<<< HEAD
 import com.it355.ivanmarkovic.dao.KategorijaDao;
 import com.it355.ivanmarkovic.dao.KorisnikDao;
 import com.it355.ivanmarkovic.model.Soba;
+=======
+import com.it355.ivanmarkovic.dao.KorisnikDao;
+import com.it355.ivanmarkovic.model.Soba;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -22,11 +30,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.it355.ivanmarkovic.dao.SobaDao;
+<<<<<<< HEAD
 import com.it355.ivanmarkovic.model.Kategorija;
 import com.it355.ivanmarkovic.model.Korisnik;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+=======
+import com.it355.ivanmarkovic.model.Korisnik;
+import com.it355.ivanmarkovic.service.KorisnikService;
+import com.it355.ivanmarkovic.service.SobaService;
+import java.util.List;
+import org.springframework.ui.Model;
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 /**
  *
  * @author Ivke
@@ -45,6 +61,15 @@ public class SobaController {
     
     @Autowired
     private KategorijaDao kategorijaDao;
+    
+    @Autowired
+    private KorisnikService korisnikService;
+    
+    @Autowired
+    private SobaDao sobaDao;
+    
+    @Autowired
+    private KorisnikDao korisnikDao;
     
     @RequestMapping(value= "/", method = RequestMethod.GET)
     public String pocetna(ModelMap model){
@@ -108,6 +133,7 @@ public class SobaController {
     }
     
     @RequestMapping(value="/dodavanjeSobe", method = RequestMethod.GET)
+<<<<<<< HEAD
     public String dodavanjeSobe(Model model){
         model.addAttribute("soba", new Soba());
         model.addAttribute("kategorije", kategorijaDao.getAllKategorije());
@@ -129,13 +155,58 @@ public class SobaController {
     public ModelAndView sobe(ModelAndView modelAndView) {
         modelAndView.addObject("sob", sobaDao.getAllRooms());
         modelAndView.addObject("soba", new Soba());
+=======
+    public String soba(Model model){
+        model.addAttribute("soba", new Soba());
+        return "dodavanjeSobe";
+        
+        /*System.out.println(messageSource.getMessage("bathroom", null, Locale.ENGLISH));
+        System.out.println(messageSource.getMessage("tv", null, Locale.ENGLISH));
+        System.out.println(messageSource.getMessage("airCondition", null, Locale.ENGLISH));
+        
+        return new ModelAndView("dodavanjeSobe","command",new Soba());*/
+    }
+    
+    //@RequestMapping(value="/dodajSobu", method = RequestMethod.POST)
+    @RequestMapping(value="/dodavanjeSobe", method = RequestMethod.POST)
+    public ModelAndView dodajSobu(@ModelAttribute("soba") Soba soba, ModelAndView model){
+        
+        model.addObject("object", soba);
+        soba.setId(sobaDao.getCount()+1);
+        sobaDao.addSoba(soba);
+        
+        /*
+        model.addAttribute("brojKreveta", soba.getBrojKreveta());
+        model.addAttribute("velicinaSobe", soba.getVelicinaUMetrimaKvadratnim());
+        model.addAttribute("kupatilo", soba.getKupatilo());
+        model.addAttribute("tv", soba.getTv());
+        model.addAttribute("klima", soba.getKlima());
+        model.addAttribute("cena", soba.getCenaPoDanu());
+        
+        */
+        
+        return model;
+    }
+    
+    @RequestMapping(value="/sobe", method=RequestMethod.GET)
+    public ModelAndView sobe(ModelAndView modelAndView) {
+        List<Soba> sobe= sobaService.getAllRooms();
+        modelAndView.addObject("sobe", sobe);
+        modelAndView.setViewName("sobe");
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
         return modelAndView;
     }
     
     @RequestMapping(value="/korisnici", method=RequestMethod.GET)
         public ModelAndView korisnici(ModelAndView modelAndView) {
+<<<<<<< HEAD
         modelAndView.addObject("koris", korisnikDao.getAllKorisnici());
         modelAndView.addObject("korisnik", new Korisnik());
+=======
+        List<Korisnik> korisnici= korisnikService.getAllUsers();
+        modelAndView.addObject("korisnici", korisnici);
+        modelAndView.setViewName("korisnici");
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
         return modelAndView;
     }
     

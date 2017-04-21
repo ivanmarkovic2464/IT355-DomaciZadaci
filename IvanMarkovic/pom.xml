@@ -15,7 +15,11 @@
         <jdk.version>1.6</jdk.version>
         <spring.version>4.2.4.RELEASE</spring.version>
         <spring.security.version>3.2.3.RELEASE</spring.security.version>
+<<<<<<< HEAD
         <jstl.version>3.1.0</jstl.version>
+=======
+        <jstl.version>1.2</jstl.version>
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
         <jackson.version>2.6.3</jackson.version>
         <jacksonmapper.version>1.9.13</jacksonmapper.version>
         <javax.servlet.version>3.0.1</javax.servlet.version>

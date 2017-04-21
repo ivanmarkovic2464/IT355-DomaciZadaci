@@ -3,7 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 16, 2017 at 10:04 AM
+=======
+<<<<<<< HEAD
+-- Generation Time: Mar 27, 2017 at 01:10 PM
+=======
+-- Generation Time: Mar 26, 2017 at 10:40 PM
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -23,6 +31,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `kategorije`
 --
 
@@ -43,26 +52,43 @@ INSERT INTO `kategorije` (`IDkategorije`, `nazivKategorije`) VALUES
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 -- Table structure for table `sobe`
 --
 
 CREATE TABLE IF NOT EXISTS `sobe` (
+<<<<<<< HEAD
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `brojKreveta` int(11) NOT NULL,
+=======
+  `ID` int(11) NOT NULL,
+<<<<<<< HEAD
+  `brojKreveta` int(11) NOT NULL,
+=======
+  `Broj kreveta` int(11) NOT NULL,
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
   `Velicina` int(11) NOT NULL,
   `Kupatilo` varchar(5) COLLATE utf8_bin NOT NULL,
   `TV` varchar(5) COLLATE utf8_bin NOT NULL,
   `Klima` varchar(5) COLLATE utf8_bin NOT NULL,
   `Cena` double NOT NULL,
+<<<<<<< HEAD
   `IDkategorije` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `IDkategorije` (`IDkategorije`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
+=======
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 
 --
 -- Dumping data for table `sobe`
 --
 
+<<<<<<< HEAD
 INSERT INTO `sobe` (`ID`, `brojKreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, `Cena`, `IDkategorije`) VALUES
 (1, 1, 50, 'da', 'da', 'da', 64, 1),
 (2, 3, 45, 'da', 'da', 'ne', 55, 1),
@@ -74,6 +100,27 @@ INSERT INTO `sobe` (`ID`, `brojKreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, 
 (8, 1, 20, 'da', 'ne', 'ne', 25, 1),
 (9, 1, 50, 'da', 'da', 'da', 100, 1),
 (10, 1, 50, 'da', 'da', 'da', 100, 1);
+=======
+<<<<<<< HEAD
+INSERT INTO `sobe` (`ID`, `brojKreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, `Cena`) VALUES
+=======
+INSERT INTO `sobe` (`ID`, `Broj kreveta`, `Velicina`, `Kupatilo`, `TV`, `Klima`, `Cena`) VALUES
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
+(1, 1, 50, 'da', 'da', 'da', 64),
+(2, 3, 45, 'da', 'da', 'ne', 55),
+(3, 2, 45, 'da', 'ne', 'da', 40),
+(4, 2, 30, 'da', 'da', 'da', 45),
+<<<<<<< HEAD
+(5, 1, 30, 'da', 'da', 'da', 65),
+(6, 2, 40, 'da', 'da', 'da', 45),
+(7, 1, 20, 'da', 'ne', 'ne', 25),
+(8, 1, 20, 'da', 'ne', 'ne', 25),
+(9, 1, 50, 'da', 'da', 'da', 100),
+(10, 1, 50, 'da', 'da', 'da', 100);
+=======
+(5, 1, 30, 'da', 'da', 'da', 65);
+>>>>>>> 3affdaca99b1fbcfd602c9cbc211bdce31c5905f
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 
 -- --------------------------------------------------------
 

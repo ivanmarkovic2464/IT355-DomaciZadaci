@@ -6,6 +6,7 @@
 package com.it355.ivanmarkovic.model;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,11 +15,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+=======
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 
 /**
  *
  * @author Ivke
  */
+<<<<<<< HEAD
 @SuppressWarnings("unused")
 @Entity
 @Table(name = "sobe")
@@ -58,6 +62,18 @@ public class Soba{
     public void setKategorija(Kategorija kategorija) {
         this.kategorija = kategorija;
     }
+=======
+@SuppressWarnings("serial")
+public class Soba implements Serializable{
+    private Integer id;
+    private Integer brojKreveta;
+    private Integer velicina;
+    private String kupatilo;
+    private String tv;
+    private String klima;
+    private Double cena;
+
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
     
     public Integer getId() {
         return id;
@@ -117,10 +133,15 @@ public class Soba{
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return "Soba{" + "id=" + id + ", brojKreveta=" + brojKreveta + ", velicina=" + velicina + ", kupatilo=" + kupatilo + ", tv=" + tv + ", klima=" + klima + ", cena=" + cena + ", kategorija=" + kategorija + '}';
     }
 
   
+=======
+        return "Soba{" + "id=" + id + ", brojKreveta=" + brojKreveta + ", velicina=" + velicina + ", kupatilo=" + kupatilo + ", tv=" + tv + ", klima=" + klima + ", cena=" + cena + '}';
+    }
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
     
     
 

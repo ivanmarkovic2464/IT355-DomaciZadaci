@@ -26,6 +26,7 @@ and open the template in the editor.
  <property name="password" value="" />
  </bean>
  
+<<<<<<< HEAD
  <!--<bean name="sobaDao" class="com.it355.ivanmarkovic.dao.impl.SobaDaoImpl">
  <property name="dataSource" ref="dataSource" />   
  </bean>
@@ -41,4 +42,23 @@ and open the template in the editor.
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     <property name="dataSource" ref="dataSource" />
     </bean>
+=======
+ <!-- Services -->
+ <bean name="sobaService" class="com.it355.ivanmarkovic.service.impl.SobaServiceImpl"/>
+
+ <bean name="korisnikService" class="com.it355.ivanmarkovic.service.impl.KorisnikServiceImpl"/>
+ <!-- Dao -->
+ <bean name="sobaDao" class="com.it355.ivanmarkovic.dao.impl.SobaDaoImpl">
+ <property name="dataSource" ref="dataSource" />
+ </bean>
+ 
+ <bean name="korisnikDao" class="com.it355.ivanmarkovic.dao.impl.KorisnikDaoImpl">
+ <property name="dataSource" ref="dataSource" />
+ </bean>
+ 
+ <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ <property name="dataSource" ref="dataSource" />
+ </bean>
+
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 </beans>

@@ -5,17 +5,22 @@
  */
 package com.it355.ivanmarkovic.model;
 
+<<<<<<< HEAD
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+=======
+import java.io.Serializable;
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 
 /**
  *
  * @author Ivan
  */
+<<<<<<< HEAD
 @SuppressWarnings("unused")
 @Entity
 @Table(name = "users")
@@ -30,6 +35,12 @@ public class Korisnik{
     private String password;
     
     @Column(name = "enabled")
+=======
+@SuppressWarnings("serial")
+public class Korisnik implements Serializable {
+    private String username;
+    private String password;
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
     private Integer enabled;
 
     public String getUsername() {

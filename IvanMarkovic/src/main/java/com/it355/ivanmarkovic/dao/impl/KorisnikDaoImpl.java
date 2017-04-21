@@ -6,6 +6,7 @@
 package com.it355.ivanmarkovic.dao.impl;
 
 import com.it355.ivanmarkovic.dao.KorisnikDao;
+<<<<<<< HEAD
 import com.it355.ivanmarkovic.model.Korisnik;
 import java.util.List;
 import javax.sql.DataSource;
@@ -19,11 +20,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+=======
+import com.it355.ivanmarkovic.mapper.KorisnikMapper;
+import com.it355.ivanmarkovic.model.Korisnik;
+import java.util.List;
+import javax.sql.DataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
 
 /**
  *
  * @author Ivan
  */
+<<<<<<< HEAD
 @Repository("korisnikDao")
 @Service
 public class KorisnikDaoImpl implements KorisnikDao{
@@ -84,6 +93,36 @@ public class KorisnikDaoImpl implements KorisnikDao{
         Korisnik k = (Korisnik) getSession().createCriteria(Korisnik.class).add(Restrictions.eq("username", username))
         .uniqueResult();
         return k;
+=======
+public class KorisnikDaoImpl implements KorisnikDao{
+
+    private JdbcTemplate jdbcTemplate;
+    @SuppressWarnings("unused")
+    private DataSource dataSource;
+ 
+    public void setDataSource(DataSource dataSource) {
+    this.dataSource = dataSource;
+    this.jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+    
+    @Override
+    public int getCount() {
+        String sql = "SELECT COUNT(*) FROM users";
+        int count = jdbcTemplate.queryForObject(sql, Integer.class);
+        return count;
+    }
+
+    @Override
+    public List<Korisnik> getAllUsers() {
+        String sql = "SELECT * FROM USERS";
+        List<Korisnik> korisnici = jdbcTemplate.query(sql, new KorisnikMapper());
+        return korisnici;
+    }
+
+    @Override
+    public boolean addKorisnika(Korisnik korisnik) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> 1f3e2861b12e725f9bca6ea7317b3220217a8d77
     }
     
 }
